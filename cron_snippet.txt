@@ -1,0 +1,15 @@
+# ┌───────────── minute (0 - 59)
+# │ ┌───────────── hour (0 - 23)
+# │ │ ┌───────────── day of month (1 - 31)
+# │ │ │ ┌───────────── month (1 - 12)
+# │ │ │ │ ┌───────────── day of week (0 - 6) (Sunday to Saturday;
+# │ │ │ │ │                                       7 is also Sunday on some syst$
+# │ │ │ │ │
+# │ │ │ │ │
+# * * * * *  command_to_execute
+
+0 7 * * * /home/pi/.local/bin/runipy -o /home/pi/Desktop/py/ipynb/corona.ipynb
+0 7 * * * cd /home/pi/Desktop/py/ipynb; echo "$(date)" >> log.txt
+1 7 * * * cd /home/pi/Desktop/py/ipynb; git add .
+2 7 * * * cd /home/pi/Desktop/py/ipynb; git commit -m "automat"
+3 7 * * * cd /home/pi/Desktop/py/ipynb; git push origin master
